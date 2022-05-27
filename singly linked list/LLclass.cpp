@@ -28,6 +28,11 @@ public:
     {
         head = new Node;
         head->val = a[0];
+        if (n == 0)
+        {
+            this->len = 0;
+            return;
+        }
         Node *curr = head;
         for (int i = 1; i < n; i++)
         {
@@ -56,9 +61,14 @@ public:
 
     void push(int value)
     {
+        if (this->size() == 0)
+        {
+            this->insert(0, 1);
+            return;
+        }
         this->len++;
         node *curr = this->head;
-        while(curr->next->next != NULL)
+        while (curr->next->next != NULL)
         {
             curr = curr->next;
         }
@@ -227,7 +237,7 @@ public:
         int a[1] = {this->head->val};
         linkedList out = linkedList(a, 1);
         node *curr = this->head->next;
-        while(curr->next != NULL)
+        while (curr->next != NULL)
         {
             out.push(curr->val);
             curr = curr->next;
@@ -243,7 +253,8 @@ public:
 
 int main()
 {
-    int a[4] = {55, 44, 66, 3};
-    linkedList l = linkedList(a, 4);
+    int a[0] = {};
+    linkedList l = linkedList(a, 0);
+    l.push(1);
     l.see();
 }
