@@ -1,6 +1,9 @@
 #include <iostream>
 #include "linkedListUtil.h"
 
+
+/*This implementation is inefficient. 
+It has been improved in "using custom linked list" folder*/
 using namespace std;
 
 class myStack

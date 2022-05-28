@@ -1,3 +1,15 @@
+/* The idea here is to implement a linked list while maintaining a tail pointer
+which always points to the last element if the list is non empty and is NULL 
+otherwise*
+
+-> Head pointer represents the top of our stack
+-> Tail pointer represents the bottom.
+
+1) PUSH method: insert at the tail  (O(1))
+2) POP method: pop the head         (O(1))
+3) FRONT method: return head->value (O(1))
+*/
+
 #include <iostream>
 #include <iterator>
 #include <map>
