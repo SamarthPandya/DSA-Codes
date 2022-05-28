@@ -59,7 +59,7 @@ public:
         cout << '\n';
     }
 
-    void push(int value)
+    void append(int value)
     {
         if (this->size() == 0)
         {
@@ -239,7 +239,7 @@ public:
         node *curr = this->head->next;
         while (curr->next != NULL)
         {
-            out.push(curr->val);
+            out.append(curr->val);
             curr = curr->next;
         }
         return out;
@@ -255,6 +255,6 @@ int main()
 {
     int a[0] = {};
     linkedList l = linkedList(a, 0);
-    l.push(1);
+    l.append(1);
     l.see();
 }
