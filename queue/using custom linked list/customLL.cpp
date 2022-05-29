@@ -2,8 +2,8 @@
 which always points to the last element if the list is non empty and is NULL 
 otherwise*
 
--> Head pointer represents the top of our stack
--> Tail pointer represents the bottom.
+-> Head pointer represents the front of our queue
+-> Tail pointer represents the rear.
 
 1) PUSH method: insert at the tail  (O(1))
 2) POP method: pop the head         (O(1))
@@ -128,6 +128,7 @@ public:
                 return;
             }
         }
+        cout << "\n*** The queue is empty ***\n";
         return;
     }
 
@@ -135,7 +136,7 @@ public:
     {
         if (this->len == 0)
         {
-            cout << "\n****empty hai****";
+            cout << "\n**** empty hai ****";
             return -1;
         }
         return this->head->val;
@@ -165,10 +166,8 @@ int main()
     l.push(3);
     l.see();
     l.pop();
-    l.see();
-    l.push(19);
-    l.see();
+    l.pop();
+    l.pop();
     l.pop();
     l.see();
-    cout << l.front();
 }

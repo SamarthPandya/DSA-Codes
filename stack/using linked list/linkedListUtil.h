@@ -60,7 +60,7 @@ public:
         cout << '\n';
     }
 
-    void push(int value)
+    void append(int value)
     {
         if (this->size() == 0)
         {
@@ -240,7 +240,7 @@ public:
         node *curr = this->head->next;
         while (curr->next != NULL)
         {
-            out.push(curr->val);
+            out.append(curr->val);
             curr = curr->next;
         }
         return out;

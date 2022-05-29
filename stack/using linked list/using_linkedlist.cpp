@@ -25,11 +25,16 @@ public:
 
     void push(int value)
     {
-        l.push(value);
+        l.insert(0, value);
     }
 
     void pop()
     {
+        if(l.size() == 0)
+        {
+            cout << "\n***The stack is empty***\n";
+            return;
+        }
         l.pop();
     }
 
@@ -50,5 +55,17 @@ public:
 
 int main()
 {
-   return 0;
+   myStack s = myStack();
+   s.push(1);
+   s.push(2);
+   s.push(3);
+   s.pop();
+   s.pop();
+   s.pop();
+   s.pop();
+   s.push(3);
+   s.push(2);
+   s.push(1);
+   cout << s.top();
+   s.see();
 }
