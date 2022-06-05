@@ -58,13 +58,12 @@ public:
             return;
         }
         cout << '\n';
-        int i = (this->start + 1) % (this->size + 1); 
-        while (i != this->end)
+        int i = this->start;
+        while(i != this->end)
         {
-            cout << a[i] << ' ';
             i = (i + 1) % (this->size + 1);
+            cout << a[i] << ' ';
         }
-        cout << a[i];
         cout << '\n';
         return;
     }
