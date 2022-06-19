@@ -16,7 +16,7 @@ using namespace std;
 
 class Solution {
 public:
-    int pivot_index(vector<int>a)
+    int pivotIndex(vector<int>a)
     {
         int i, out = a.size() - 1;
         for (i = a.size() - 2; i >= 0; i--)
@@ -43,7 +43,7 @@ public:
         }
     }
     void nextPermutation(vector<int>& nums) {
-        int p = pivot_index(nums);
+        int p = pivotIndex(nums);
         if (p == nums.size() - 1)
         {
             rev(nums, -1);
