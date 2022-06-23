@@ -3,7 +3,7 @@
 /*
 todo: Find the min number of adjacent swaps to reach the kth consecutive permutation
 * IDEA: kth wonderful number = kth smallest permutation
-ALGORITHM
+  ALGORITHM
 * Step 1: Given nums, find its kth consecutive permutation, 'kthPermutation'
 * Step 2: Find the min No. of adj. swaps to reach from nums1 to kthPermutation
 */
@@ -50,6 +50,7 @@ public:
     }
 };
 
+// driver code
 int main()
 {
     string a = "5489355142";
