@@ -51,9 +51,17 @@ node* fromPostOrder(vector<int>in, vector<int>post, int s, int e, int *pi)
     return head; 
 }
 
+
+
 int main()
 {
     vector<int>ino = {4, 10, 2, 5, 1, 11, 9, 7, 3, 8}, p = {10, 4, 5, 2, 11, 9, 7, 8, 3, 1};
     int l = 9;
-    node *head = fromPostOrder(ino, p, 0, 9, &l);
+    //node *head = fromPostOrder(ino, p, 0, 9, &l);
+    node*head = new node(1);
+    head->left = new node(2);
+    head->right = new node(3);
+    head->left->left = new node(4);
+    head->left->left->left = new node(5);
+    cout << isBalanced(head);
 }

@@ -140,3 +140,59 @@ int height(node *head)
     return max(v1, v2);
 }
 
+
+
+
+int diameterUtil1(node* head)
+{
+    return height(head->left) + height(head->right) + 2;
+}
+
+void diamUtil2(node* head, int& ans)
+{
+    if (head != NULL)
+    {
+        int temp = diameterUtil1(head);
+        if (temp > ans)
+        {
+            ans = temp;
+        }
+        diamUtil2(head->left, ans);
+        diamUtil2(head->right, ans);
+    }
+}
+
+bool isBalanced(node* head)
+{
+    queue<node*>q;
+    if (head == NULL)
+    {
+        return true;
+    }
+    q.push(head);
+    while (!q.empty())
+    {
+        node* temp = q.front();
+        q.pop();
+        if (abs(height(temp->left) - height(temp->right)) > 1)
+        {
+            return false;
+        }
+        if (temp->left != NULL)
+        {
+            q.push(temp->left);
+        }
+        if (temp->right != NULL)
+        {
+            q.push(temp->right);
+        }
+    }
+    return true;
+}
+
+int diameter(node* head)
+{
+    int out;
+    diamUtil2(head, out);
+    return out;
+}

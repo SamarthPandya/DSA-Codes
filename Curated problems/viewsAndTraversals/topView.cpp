@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "treeUtility.h"
+#include "C:\Users\HP 14 DR2016TU 11i5\Desktop\HOME\Serious\binary tree\treeUtility.h"
 
 using namespace std;
 
@@ -44,6 +44,33 @@ vector<int>topView(node *head)
     return ans;
 }
 
+/*int diameterUtil1(node* head)
+{
+    return height(head->left) + height(head->right) + 2;
+}
+
+void diamUtil2(node* head, vector<int>&ans)
+{
+    if (head != NULL)
+    {
+        int temp = diameterUtil1(head);
+        cout << temp << '\n';
+        if (temp > ans[0])
+        {
+            ans[0] = temp;
+        }
+        diamUtil2(head->left, ans);
+        diamUtil2(head->right, ans);
+    }
+}
+
+int diameter(node* head)
+{
+    vector<int> out = {0};
+    diamUtil2(head, out);
+    return out[0];
+}*/
+
 int main()
 {
     node* head = new node(20);
@@ -55,9 +82,10 @@ int main()
     head->right->left = new node(4);
     head->right->left->right = new node(14);
     head->right->right = new node(25);
-    vector<int>ans = topView(head);
+    /*vector<int>ans = topView(head);
     for (int i : ans)
     {
         cout << i << ' ';
-    }
+    }*/
+    cout << diameter(head);
 }
