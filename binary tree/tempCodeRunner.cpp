@@ -1,72 +1,59 @@
-// C/C++ program to find maximum path sum in Binary Tree
 #include<bits/stdc++.h>
+#include "C:\Users\HP 14 DR2016TU 11i5\Desktop\HOME\Serious\binary tree\treeUtility.h"
+
 using namespace std;
 
-// A binary tree node
-struct Node
+void flip(node *root)
 {
-    int data;
-    struct Node* left, * right;
-};
-
-// A utility function to allocate a new node
-struct Node* newNode(int data)
-{
-    struct Node* newNode = new Node;
-    newNode->data = data;
-    newNode->left = newNode->right = NULL;
-    return (newNode);
+    if(root != NULL)
+    {
+        node*temp = root->left;
+        root->left = root->right;
+        root->right = temp;
+        flip(root->left);
+        flip(root->right);
+    }
+    return;
 }
 
-// This function returns overall maximum path sum in 'res'
-// And returns max path sum going through root.
-int findMaxUtil(Node* root, int& res)
+bool isIdentical(node *a, node *b)
 {
-    //Base Case
-    if (root == NULL)
-        return 0;
-
-    // l and r store maximum path sum going through left and
-    // right child of root respectively
-    int l = findMaxUtil(root->left, res);
-    int r = findMaxUtil(root->right, res);
-
-    // Max path for parent call of root. This path must
-    // include at-most one child of root
-    int max_single = max(max(l, r) + root->data, root->data);
-
-    // Max Top represents the sum when the Node under
-    // consideration is the root of the maxsum path and no
-    // ancestors of root are there in max sum path
-    int max_top = max(max_single, l + r + root->data);
-
-    res = max(res, max_top); // Store the Maximum Result.
-
-    return max_single;
+    if(a == NULL && b == NULL)
+    {
+        return true;
+    }
+    if(a != NULL || b != NULL)
+    {
+        return false;
+    }
+    if(a->val != b->val)
+    {
+        return false;
+    }
+    else
+    {
+        return true && isIdentical(a->left, b->left) && isIdentical(a->right, b->right);
+    }
 }
 
-// Returns maximum path sum in tree with given root
-int findMaxSum(Node* root)
+bool isSymmetric(node *head)
 {
-    // Initialize result
-    int res = INT_MIN;
-
-    // Compute and return result
-    findMaxUtil(root, res);
-    return res;
+    if(head == NULL)
+    {
+        return false;
+    }
+    flip(head->right);
+    return isIdentical(head->left, head->right);
 }
 
-// Driver program
-int main(void)
+int main()
 {
-    struct Node* root = newNode(10);
-    root->left = newNode(2);
-    root->right = newNode(10);
-    root->left->left = newNode(20);
-    root->left->right = newNode(1);
-    root->right->right = newNode(-25);
-    root->right->right->left = newNode(3);
-    root->right->right->right = newNode(4);
-    cout << "Max path sum is " << findMaxSum(root);
-    return 0;
+    node *head = new node(1);
+    head->left = new node(2);
+    head->right = new node(2);
+    head->left->left = new node(3);
+    head->right->right = new node(3);
+    cout << isSymmetric(head);
 }
+
+
