@@ -49,7 +49,7 @@ void heap_sort(int a[], int n)
 
 int main()
 {
-    int a[6] = {4, 3, 1, 2, 0, -1};
+    int a[6] = {4, 3, 1, 2, 0, 1};
     heap_sort(a, 6);
     display(a, 6);
 }
