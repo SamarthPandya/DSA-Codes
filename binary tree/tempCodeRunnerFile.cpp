@@ -1,0 +1,1 @@
+steps.push_back((outPut == path1Cost) ? 1 : 2);

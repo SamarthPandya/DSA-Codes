@@ -190,9 +190,65 @@ bool isBalanced(node* head)
     return true;
 }
 
-int diameter(node* head)
+node* rrRotation(node* head)
 {
-    int out;
-    diamUtil2(head, out);
-    return out;
+    node* a = head, * b = a->left, * c = a->left->left;
+    node* temp = b->right;
+    a->left = NULL;
+    b->right = a;
+    a->left = temp;
+    return b;
+}
+
+node* llRotation(node* head)
+{
+    node* a = head, * b = a->right, * c = b->right;
+    node* temp = b->left;
+    a->right = NULL;
+    b->left = a;
+    a->right = temp;
+    return b;
+}
+
+node* lrRotation(node* head)
+{
+    node* a = head;
+    node* b = head->left;
+    node* c = head->left->right;
+    node* temp1 = c->left;
+    node* temp2 = c->right;
+    c->left = b;
+    c->right = a;
+    b->right = temp1;
+    a->left = temp2;
+    return c;
+}
+
+node* rlRotation(node* head)
+{
+    node* a = head;
+    node* b = head->right;
+    node* c = b->left;
+    node* temp1 = c->left;
+    node* temp2 = c->right;
+    c->left = a;
+    c->right = b;
+    a->right = temp1;
+    b->left = temp2;
+    return c;
+}
+
+node* minNodeRight(node* head)
+{
+    node* temp = head;
+    while (temp && temp->left)
+    {
+        temp = temp->left;
+    }
+    return temp;
+}
+
+int balanceFactor(node* head)
+{
+    return height(head->left) - height(head->right);
 }
