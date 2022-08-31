@@ -61,7 +61,5 @@ public:
 
 int main()
 {
-    int a[4] = {1, 3, 2, 3};
-    Dll l = Dll(a, 4);
-    l.see();
+    
 }
